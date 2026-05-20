@@ -2,7 +2,7 @@
 
 > Compact provider slug catalog for agents. Use the slug to reconstruct provider-specific docs URLs only when needed.
 
-Provider count: 817
+Provider count: 818
 
 URL patterns:
 - Main provider page: https://nango.dev/docs/integrations/all/{slug}.md or https://nango.dev/docs/api-integrations/{slug}.md
@@ -368,6 +368,7 @@ URL patterns:
 | `huntress` | Huntress | BASIC | [docs](https://nango.dev/docs/api-integrations/huntress.md) | [connect](https://nango.dev/docs/api-integrations/huntress/connect.md) |  | other |
 | `icypeas` | Icypeas | API_KEY | [docs](https://nango.dev/docs/integrations/all/icypeas.md) | [connect](https://nango.dev/docs/integrations/all/icypeas/connect.md) |  | marketing, crm |
 | `incident-io` | Incident.io | API_KEY | [docs](https://nango.dev/docs/integrations/all/incident-io.md) | [connect](https://nango.dev/docs/integrations/all/incident-io/connect.md) |  | ticketing |
+| `ingram-micro-cloud-marketplace` | Ingram Micro Cloud Marketplace | TWO_STEP | [docs](https://nango.dev/docs/api-integrations/ingram-micro-cloud-marketplace.md) | [connect](https://nango.dev/docs/api-integrations/ingram-micro-cloud-marketplace/connect.md) |  | e-commerce |
 | `insightly` | Insightly | BASIC | [docs](https://nango.dev/docs/integrations/all/insightly.md) |  |  | crm |
 | `instagram` | Instagram | OAUTH2 | [docs](https://nango.dev/docs/api-integrations/instagram.md) |  | [setup](https://nango.dev/docs/api-integrations/instagram/how-to-register-your-own-instagram-api-oauth-app.md) | marketing, social |
 | `instantly` | Instantly | API_KEY | [docs](https://nango.dev/docs/integrations/all/instantly.md) | [connect](https://nango.dev/docs/integrations/all/instantly/connect.md) |  | marketing, communication |

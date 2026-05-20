@@ -1,0 +1,43 @@
+---
+title: Ingram Micro Cloud Marketplace - How do I link my account?
+sidebarTitle: Ingram Micro Cloud Marketplace
+---
+
+# Overview
+
+To authenticate with Ingram Micro Cloud Marketplace, you will need:
+
+1. **API host** - The Cloud Marketplace API base URL host from the Ingram Micro API Portal.
+2. **Marketplace** - The Cloud Marketplace code for the token request, for example `us`.
+3. **Username** and **password** - The Basic auth credentials for the token endpoint.
+4. **Subscription key** - The subscription key sent to Cloud Marketplace API endpoints.
+5. **Client ID** - Optional. Enter it when Ingram Micro requires `X-Client-Id` for your integration.
+
+Nango uses these values to request and refresh the Cloud Marketplace bearer token. Requests through the Nango proxy include the bearer token, subscription key, and Client ID value when one was supplied.
+
+### Prerequisites
+
+- Access to the Ingram Micro API Portal for the Cloud Marketplace API.
+- Cloud Marketplace API credentials provisioned by Ingram Micro.
+
+### Instructions
+
+#### Step 1: Find your Cloud Marketplace API values
+
+1. Log in to the Ingram Micro API Portal and open the Cloud Marketplace API product page.
+2. Copy the API base URL. Enter only the host in Nango. For example, for `https://api.example.com`, enter `api.example.com`.
+3. Copy the username, password, and subscription key provided for your Cloud Marketplace API access.
+4. Identify the marketplace code for the region you are connecting. The US marketplace code is `us`.
+5. If Ingram Micro support gave you a Client ID for an integration with another application, keep it available for the optional Client ID field.
+
+#### Step 2: Enter credentials in the Connect UI
+
+1. Open the form where you need to authenticate with Ingram Micro Cloud Marketplace.
+2. Enter the **API Host** and **Marketplace**.
+3. Enter your **Username**, **Password**, and **Subscription Key**.
+4. Enter **Client ID** when Ingram Micro requires it for your integration.
+5. Submit the form to create the connection.
+
+<img src="/api-integrations/ingram-micro-cloud-marketplace/form.png" style={{maxWidth: "450px" }}/>
+
+You are now connected to Ingram Micro Cloud Marketplace.

@@ -1,0 +1,79 @@
+---
+title: 'Ingram Micro Cloud Marketplace'
+sidebarTitle: 'Ingram Micro Cloud Marketplace'
+description: 'Integrate your application with the Ingram Micro Cloud Marketplace API'
+---
+
+## Quickstart
+
+Connect to Ingram Micro Cloud Marketplace with Nango and see data flow in 2 minutes.
+
+<Steps>
+    <Step title="Create the integration">
+    In Nango ([free signup](https://app.nango.dev)), go to [Integrations](https://app.nango.dev/dev/integrations) -> _Configure New Integration_ -> _Ingram Micro Cloud Marketplace_.
+    </Step>
+    <Step title="Authorize Ingram Micro Cloud Marketplace">
+    Go to [Connections](https://app.nango.dev/dev/connections) -> _Add Test Connection_ -> _Authorize_, then enter the API host, marketplace, username, password, and subscription key from Ingram Micro. Enter the Client ID too if Ingram Micro requires it for your integration.
+    </Step>
+    <Step title="Call the Cloud Marketplace API">
+    Make your first request to the Cloud Marketplace API. Replace the placeholders below with your [API key](https://app.nango.dev/dev/environment-settings), [integration ID](https://app.nango.dev/dev/integrations), and [connection ID](https://app.nango.dev/dev/connections):
+    <Tabs>
+        <Tab title="cURL">
+
+            ```bash
+            curl "https://api.nango.dev/proxy/products" \
+              -H "Authorization: Bearer <NANGO-API-KEY>" \
+              -H "Provider-Config-Key: <INTEGRATION-ID>" \
+              -H "Connection-Id: <CONNECTION-ID>"
+            ```
+
+        </Tab>
+
+        <Tab title="Node">
+
+        Install Nango's backend SDK with `npm i @nangohq/node`. Then run:
+
+        ```typescript
+        import { Nango } from '@nangohq/node';
+
+        const nango = new Nango({ secretKey: '<NANGO-API-KEY>' });
+
+        const res = await nango.get({
+            endpoint: '/products',
+            providerConfigKey: '<INTEGRATION-ID>',
+            connectionId: '<CONNECTION-ID>'
+        });
+
+        console.log(res.data);
+        ```
+        </Tab>
+
+    </Tabs>
+    Nango gets and refreshes the Cloud Marketplace bearer token. Proxy requests add the bearer token, `X-Subscription-Key`, and the `X-Client-Id` value when the connection has one.
+
+    These vendor headers are configured on the Nango proxy. Calls that bypass the proxy must add the bearer token, `X-Subscription-Key`, and any required `X-Client-Id` header themselves.
+    </Step>
+
+    <Step title="Implement Nango in your app">
+        Follow our [Auth implementation guide](/guides/primitives/auth) to integrate Nango in your app.
+
+        To obtain your own production credentials, follow the setup guide linked below.
+    </Step>
+</Steps>
+
+## Ingram Micro Cloud Marketplace integration guides
+
+- [How do I link my account?](/api-integrations/ingram-micro-cloud-marketplace/connect)
+Connect your Ingram Micro Cloud Marketplace account using the Connect UI.
+
+Official docs: [Cloud Marketplace API documentation](https://developer.ingrammicro.com/reseller/cloud-api-documentation)
+
+## Pre-built syncs & actions for Ingram Micro Cloud Marketplace
+
+Enable them in your dashboard. Extend and customize to fit your needs.
+
+import PreBuiltUseCases from "/snippets/generated/ingram-micro-cloud-marketplace/PreBuiltUseCases.mdx"
+
+<PreBuiltUseCases />
+
+---

@@ -9460,6 +9460,82 @@ incident-io:
             pattern: 'inc_[a-f0-9]{64}$'
             doc_section: '#step-1-generating-your-api-key'
 
+ingram-micro-cloud-marketplace:
+    display_name: Ingram Micro Cloud Marketplace
+    categories:
+        - e-commerce
+    auth_mode: TWO_STEP
+    body_format: json
+    token_url: https://${connectionConfig.apiHost}/token
+    token_params:
+        marketplace: ${connectionConfig.marketplace}
+    token_headers:
+        authorization: Basic ${base64(${credentials.username}:${credentials.password})}
+        x-subscription-key: ${credentials.subscriptionKey}
+        x-client-id: ${credentials.clientId} ||
+        content-type: application/json
+    token_response:
+        token: token
+        token_expiration: expiresInSeconds
+        token_expiration_strategy: expireIn
+    proxy:
+        base_url: https://${connectionConfig.apiHost}
+        headers:
+            x-subscription-key: ${credentials.subscriptionKey}
+            x-client-id: ${credentials.clientId} ||
+    docs: https://nango.dev/docs/api-integrations/ingram-micro-cloud-marketplace
+    docs_connect: https://nango.dev/docs/api-integrations/ingram-micro-cloud-marketplace/connect
+    connection_config:
+        apiHost:
+            type: string
+            title: API Host
+            description: The Cloud Marketplace API host from the Ingram Micro API Portal.
+            example: api.marketplace.ingrammicro.com
+            format: hostname
+            prefix: https://
+            order: 1
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+        marketplace:
+            type: string
+            title: Marketplace
+            description: The two-letter Cloud Marketplace code used by the token endpoint.
+            example: us
+            pattern: '^[a-z]{2}$'
+            order: 2
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+    credentials:
+        username:
+            type: string
+            title: Username
+            description: Your Cloud Marketplace API username.
+            example: cmp-api-user
+            pattern: '^\S+$'
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+        password:
+            type: string
+            title: Password
+            description: Your Cloud Marketplace API password.
+            example: ImCloudP*********123
+            pattern: '^\S+$'
+            secret: true
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+        subscriptionKey:
+            type: string
+            title: Subscription Key
+            description: Your Cloud Marketplace API subscription key.
+            example: 8f4dca2******************19fb12d
+            pattern: '^\S+$'
+            secret: true
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+        clientId:
+            type: string
+            title: Client ID
+            description: The optional client ID Ingram Micro support gives you when it is required for your integration.
+            example: cmp-client-123456
+            pattern: '^\S+$'
+            optional: true
+            doc_section: '#step-1-find-your-cloud-marketplace-api-values'
+
 insightly:
     display_name: Insightly
     categories:
